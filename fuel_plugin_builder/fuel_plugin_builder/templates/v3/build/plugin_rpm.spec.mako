@@ -41,9 +41,13 @@ ${ preinstall_hook }
 
 %%post
 ${ postinstall_hook }
+fuel plugins --install %{name}-%{version}-1.noarch.rpm
 
 %%preun
 ${ uninstall_hook }
+
+%%postun
+echo %{name}
 
 %%files
 /var/www/nailgun/plugins/${ name }
